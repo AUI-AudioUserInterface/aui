@@ -1,0 +1,9 @@
+[submodule "aui-core"]
+	path = aui-core
+	url = git@github.com:AUI-AudioUserInterface/aui-core.git
+[submodule "aui-tk"]
+	path = aui-tk
+	url = git@github.com:AUI-AudioUserInterface/aui-tk.git
+[submodule "aui-demo"]
+	path = aui-demo
+	url = git@github.com:AUI-AudioUserInterface/aui-demo.git
