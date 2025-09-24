@@ -3,8 +3,8 @@
 	url = https://github.com/AUI-AudioUserInterface/aui-common.git
 
 [submodule "aui-core"]
-    path = aui-core
-    url = https://github.com/AUI-AudioUserInterface/aui-core.git
+	path = aui-core
+	url = https://github.com/AUI-AudioUserInterface/aui-core.git
 
 [submodule "aui-tk"]
     path = aui-tk
