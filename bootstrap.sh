@@ -46,22 +46,45 @@ fi
 if [ ! -d ".venv" ]; then
   "$PY" -m venv .venv
 fi
+
 # shellcheck disable=SC1091
 source .venv/bin/activate
 
-python -m pip install -q --upgrade pip setuptools wheel
+# ---- Pip-Kommando strikt aus der venv wählen --------------------------------
+VENV_BIN="$(cd .venv/bin && pwd)"
+VENV_PY="$VENV_BIN/python"
+
+PIP_CMD=()
+if [ -x "$VENV_BIN/pip" ]; then
+  # Verwende exakt das pip aus der venv (kein PATH-Lookup)
+  PIP_CMD=("$VENV_BIN/pip")
+elif "$VENV_PY" -m pip --version >/dev/null 2>&1; then
+  PIP_CMD=("$VENV_PY" -m pip)
+elif command -v uv >/dev/null 2>&1; then
+  # uv pip in aktive venv installieren lassen
+  PIP_CMD=(uv pip)
+else
+  echo "ERROR: Kein pip in der venv, und weder 'python -m pip' noch 'uv' verfügbar." >&2
+  echo "Installiere 'python3-pip' oder 'uv'." >&2
+  exit 1
+fi
+
+pip_install() { "${PIP_CMD[@]}" "$@"; }
+
+# ---- Basis-Tools upgraden ---------------------------------------------------
+pip_install install -q --upgrade setuptools wheel
 
 # ---- Dev-Requirements (optional) -------------------------------------------
 if [ "$INSTALL_DEV" -eq 1 ] && [ -f "requirements.txt" ]; then
-  pip install -r requirements.txt
+  pip_install install -r requirements.txt
 fi
 
-# ---- Helper: editable install wenn Verzeichnis + pyproject existieren -------
+# ---- Helper: editable install ----------------------------------------------
 install_editable() {
   local d="$1"
   if [ -d "$d" ] && [ -f "$d/pyproject.toml" ]; then
-    echo ">> pip install -e $d"
-    pip install -e "$d"
+    echo ">> ${PIP_CMD[*]} install -e $d"
+    pip_install install -e "$d"
   fi
 }
 
@@ -80,5 +103,6 @@ if [ "$INSTALL_PIPER" -eq 1 ]; then install_editable aui-tts-piper; fi
 
 echo
 echo "== AUI bootstrap abgeschlossen =="
-echo "Aktive venv: $(python --version)"
+echo "Aktive venv: $("$VENV_PY" --version)"
+echo "PIP_CMD: ${PIP_CMD[*]}"
 echo "Zum Reaktivieren:  source .venv/bin/activate"
