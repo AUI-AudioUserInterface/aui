@@ -1,0 +1,7 @@
+# Core dependencies
+simpleaudio
+TTS
+piper-tts
+ari
+-e aui-tk/
+-e aui-demo/
