@@ -1,0 +1,9 @@
+# Dev tooling (optional, aber empfohlen)
+ruff>=0.6.0
+mypy>=1.10.0
+pytest>=8.2.0
+pytest-asyncio>=0.23.8
+
+# Build tools (falls Wheels gebaut werden)
+build>=1.2.1
+twine>=5.1.1
