@@ -98,6 +98,65 @@ aui.adapters
 
 ---
 
+## Appendix: Why “AUDIO”?
+
+Yes, **AUDIO** is a backronym – because every respectable project needs one.  
+And since we’re dealing with sound, it had to be this one 🎶:
+
+- **A**udio  
+- **U**ser  
+- **D**ialogue / **D**ynamic  
+- **I**nterface  
+- **O**rchestrator  
+
+Depending on context, we call it either a *Dialogue Interface Orchestrator* (because the system actually talks with you) or a *Dynamic Interface Orchestrator* (because menus, prompts, and logic are all runtime-driven). Both are true.
+
+What does that mean in practice?
+
+- Build **spoken dialogues** with the user (TTS or pre-recorded audio).  
+- Allow users to **dial in options via DTMF** – like old-school phone menus, only less annoying (hopefully).  
+- Combine **audio sources and sinks** (PC, SIP/ARI, telephony, …).  
+- Orchestrate prompts, interruptions, and navigation logic such as “press # for next page.”  
+
+So: **AUDIO is an orchestrator for Audio User Interfaces** – sometimes talkative, sometimes dynamic, always slightly over-engineered… just the way we like it in Open Source 😄.  
+
+---
+
+## Appendix: Example DTMF Menu Flow
+
+AUDIO menus can be navigated just like those classic phone systems –  
+only friendlier, more flexible, and with extra shortcuts:
+
+- `*`   → back (←)  
+- `#`   → forward (→)  
+- `**`  → cancel / abort  
+- `##`  → confirm / enter  
+
+Example:
+
+```
+Welcome to AUDIO!
+
+Page 1:
+  1 – Weather report
+  2 – News
+  3 – Music
+
+[*] go back, [#] next page, [##] confirm
+```
+
+If the user presses:
+
+- `1` → System says: “You selected *Weather report*.”  
+- `#` → Switches to *Page 2*.  
+- `*` → Goes to *previous page* (if any).  
+- `**` → Cancels the menu and exits.  
+- `##` → Confirms the current choice.  
+
+This combines **spoken prompts, DTMF input, and navigation rules** into a coherent dialogue – like an IVR, but modular and open source.
+
+---
+
 ## Support‑/Kommerzielle Angebote
 
 - Erweiterte ARI‑/Adapter‑Funktionalität kann als **kommerzielles, closed‑source Plugin** bereitgestellt werden.
