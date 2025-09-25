@@ -7,21 +7,21 @@
 	url = https://github.com/AUI-AudioUserInterface/aui-core.git
 
 [submodule "aui-tk"]
-    path = aui-tk
-    url = https://github.com/AUI-AudioUserInterface/aui-tk.git
+	path = aui-tk
+	url = https://github.com/AUI-AudioUserInterface/aui-tk.git
 
 [submodule "aui-tts-piper"]
-    path = aui-tts-piper
-    url = https://github.com/AUI-AudioUserInterface/aui-tts-piper.git
+	path = aui-tts-piper
+	url = https://github.com/AUI-AudioUserInterface/aui-tts-piper.git
 
 [submodule "aui-tts-coqui"]
-    path = aui-tts-coqui
-    url = https://github.com/AUI-AudioUserInterface/aui-tts-coqui.git
+	path = aui-tts-coqui
+	url = https://github.com/AUI-AudioUserInterface/aui-tts-coqui.git
 
 [submodule "aui-adapter-pc"]
-    path = aui-adapter-pc
-    url = https://github.com/AUI-AudioUserInterface/aui-adapter-pc.git
+	path = aui-adapter-pc
+	url = https://github.com/AUI-AudioUserInterface/aui-adapter-pc.git
 
 [submodule "aui-adapter-ari-simple"]
-    path = aui-adapter-ari-simple
-    url = https://github.com/AUI-AudioUserInterface/aui-adapter-ari-simple.git
+	path = aui-adapter-ari-simple
+	url = https://github.com/AUI-AudioUserInterface/aui-adapter-ari-simple.git
