@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "AUI-Core (PC, module)",
+            "type": "python",
+            "request": "launch",
+            "module": "auicore",
+            "cwd": "${workspaceFolder}/aui-core",
+            "justMyCode": true,
+            "env": {
+                "AUI_MODE": "pc",
+                "AUI_TTS_LANG": "de",
+                "AUI_TTS_RATE": "170",
+                "AUI_TTS_VOL": "1.0"
+            }
+        }
+    ]
+}
